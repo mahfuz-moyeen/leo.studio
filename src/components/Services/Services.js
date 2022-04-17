@@ -1,15 +1,11 @@
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Services = ({ item }) => {
     const { id, img, name, price, duration, takePhoto, editedPhoto, print, description } = item;
-    const navigate = useNavigate();
 
-    const navigateToServicesId = id => {
-        navigate(`/service/${id}`);
-    }
     return (
         <Col>
             <Card className='bg-white'>
@@ -34,9 +30,9 @@ const Services = ({ item }) => {
                 </ListGroup>
                 <Card.Body>
                     <Card.Text >{description}</Card.Text>
-                    <button
+                    <Link
                         className='btn btn-primary d-block mx-auto fw-bold'
-                        onClick={() => navigateToServicesId(id)}>Booking</button>
+                        to='/checkout'>Booking</Link>
                 </Card.Body>
             </Card>
         </Col>

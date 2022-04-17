@@ -10,6 +10,7 @@ import './App.css';
 import User from './components/User/User';
 import CheckOut from './components/CheckOut/CheckOut';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path='/user' element={<User/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }

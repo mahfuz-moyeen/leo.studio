@@ -1,0 +1,23 @@
+footer {
+    background-color: rgb(15, 15, 15);
+    color: rgb(211, 211, 211);
+}
+
+.footer-band-logo img {
+    width: 20%;
+}
+
+.footer-text {
+    color: rgb(211, 211, 211);
+}
+
+.footer-logo {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}

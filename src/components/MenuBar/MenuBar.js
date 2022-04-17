@@ -29,10 +29,6 @@ const MenuBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-
-                        {/* <CustomLink to='/'>Home</CustomLink>
-                        <CustomLink to='/blog'>Blog</CustomLink>
-                        <CustomLink to='/about'>About</CustomLink> */}
                         <Nav.Link as={Link} to='/'>Home</Nav.Link>
                         <Nav.Link as={Link} to='/checkout'>check out</Nav.Link>
                         <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
@@ -47,8 +43,7 @@ const MenuBar = () => {
                         <Nav>
                             <Nav.Link as={Link} to='/register'>Register</Nav.Link>
                             <Nav.Link as={Link} to='/login'>Login</Nav.Link>
-                            {/* <CustomLink to="/register">Register</CustomLink>
-                        <CustomLink to="/login">Login</CustomLink> */}
+
                         </Nav>
                     }
                 </Navbar.Collapse>

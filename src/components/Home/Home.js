@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Row } from 'react-bootstrap';
 import useServices from '../../hook/useServices';
 import Banner from '../Banner/Banner';
