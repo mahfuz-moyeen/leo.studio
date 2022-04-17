@@ -87,6 +87,7 @@ const Login = () => {
                 <Button variant="primary" type="submit">Login</Button>
             </Form>
             <SocialLogin />
+            <ToastContainer />
         </div>
     );
 };

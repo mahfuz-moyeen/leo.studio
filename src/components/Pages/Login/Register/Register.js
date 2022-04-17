@@ -18,7 +18,7 @@ const Register = () => {
     const location = useLocation();
     const [agree, setAgree] = useState(false);
 
-    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -34,26 +34,34 @@ const Register = () => {
     const handleConfirmPasswordBlur = event => {
         setConfirmPassword(event.target.value);
     }
-    
+
     if (loading || updating) {
         return <Loading></Loading>
     }
 
-    if (user) {
-        const from = location.state?.from?.pathname || "/";
-        navigate(from, { replace: true });
-    }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        if (password === confirmPassword) {
-            setPasswordError('')
-           await createUserWithEmailAndPassword(email, password);
-           await updateProfile({ displayName:name});
-           toast('Updated profile');
+
+        if (/^(?=.*?[#?!@$%^&*-]).{8,}$/.test(password)) {
+            setPasswordError('');
+
+            if (password === confirmPassword) {
+                await createUserWithEmailAndPassword(email, password);
+                await updateProfile({ displayName: name });
+                toast('Updated profile');
+    
+                if (user) {
+                    const from = location.state?.from?.pathname || "/";
+                    navigate(from, { replace: true });
+                }
+            }
+            else {
+                setPasswordError("Two password did not match");
+            }
         }
-        else {
-            setPasswordError("Two password did not match");
+        else{
+            setPasswordError('Minimum eight in length, At least one special character');
         }
     }
     return (
@@ -106,10 +114,10 @@ const Register = () => {
 
                 {/* checkbox  */}
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check 
-                    onClick={() => setAgree(!agree)}
-                     type="checkbox" 
-                     label="Accept leo studio Terms and Conditions" />
+                    <Form.Check
+                        onClick={() => setAgree(!agree)}
+                        type="checkbox"
+                        label="Accept leo studio Terms and Conditions" />
                 </Form.Group>
 
                 <Form.Text className="text-danger">{error?.message.slice(22)}</Form.Text>
