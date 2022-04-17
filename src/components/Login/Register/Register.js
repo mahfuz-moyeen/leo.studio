@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init'
 import SocialLogin from '../SocialLogin/SocialLogin';
 
@@ -13,6 +13,7 @@ const Register = () => {
     const [passwordError, setPasswordError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+    const [agree, setAgree] = useState(false);
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
     const handleNameBlur = event => {
@@ -47,6 +48,7 @@ const Register = () => {
         <div className='container my-5 w-75'>
             <h1 className='text-center'>REGIS<span className='text-primary'>TER</span></h1>
             <Form onSubmit={handleFormSubmit}>
+
                 {/* name field  */}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Your Name</Form.Label>
@@ -56,6 +58,7 @@ const Register = () => {
                         placeholder="Enter name"
                         required />
                 </Form.Group>
+
                 {/* email field  */}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
@@ -66,6 +69,7 @@ const Register = () => {
                         required />
                     <Form.Text className="text-danger"></Form.Text>
                 </Form.Group>
+
                 {/* password field  */}
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
@@ -76,6 +80,7 @@ const Register = () => {
                         required />
                     <Form.Text className="text-danger">{passwordError}</Form.Text>
                 </Form.Group>
+
                 {/* confirm password field  */}
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Confirm Password</Form.Label>
@@ -87,10 +92,22 @@ const Register = () => {
                     <Form.Text className="text-danger"></Form.Text>
                 </Form.Group>
 
+                {/* checkbox  */}
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check 
+                    onClick={() => setAgree(!agree)}
+                     type="checkbox" 
+                     label="Accept leo studio Terms and Conditions" />
+                </Form.Group>
+
                 <Form.Text className="text-danger">{error}</Form.Text>
-                <Button variant="primary" type="submit">Register</Button>
+                <p>Already have an account? <Link to="/login" className='text-primary pe-auto text-decoration-none' >Please Login</Link> </p>
+                <Button
+                    disabled={!agree}
+                    variant="primary"
+                    type="submit">Register</Button>
             </Form>
-            <SocialLogin/>
+            <SocialLogin />
         </div>
     );
 };

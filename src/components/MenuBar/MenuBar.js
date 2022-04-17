@@ -34,6 +34,7 @@ const MenuBar = () => {
                         <CustomLink to='/blog'>Blog</CustomLink>
                         <CustomLink to='/about'>About</CustomLink> */}
                         <Nav.Link as={Link} to='/'>Home</Nav.Link>
+                        <Nav.Link as={Link} to='/checkout'>check out</Nav.Link>
                         <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
                         <Nav.Link as={Link} to='/about'>About</Nav.Link>
                     </Nav>

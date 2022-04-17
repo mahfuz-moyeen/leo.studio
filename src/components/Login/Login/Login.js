@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -52,8 +52,8 @@ const Login = () => {
                     <Form.Text className="text-danger"></Form.Text>
                 </Form.Group>
                 <Form.Text className="text-danger">{error?.message}</Form.Text>
-
-            
+                
+                <p>New to leo studio ? <Link to="/register" className='text-primary pe-auto text-decoration-none' >Please Register</Link> </p>
 
 
                 <Button variant="primary" type="submit">Login</Button>
