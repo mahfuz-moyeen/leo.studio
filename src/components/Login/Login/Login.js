@@ -18,9 +18,8 @@ const Login = () => {
     }
 
     if (user) {
-        // const from = location.state?.from?.pathname || "/";
-        // navigate(from, { replace: true });
-        navigate('/')
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
     }
 
     const handleFormSubmit = event => {
