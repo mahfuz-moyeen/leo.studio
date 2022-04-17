@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import About from './components/About/About';
 import Blog from './components/Blog/Blog';
 import Home from './components/Home/Home';
-import Login from './components/Login/Login';
+import Login from './components/Login/Login/Login';
 import MenuBar from './components/MenuBar/MenuBar';
-import Register from './components/Register/Register';
+import Register from './components/Login/Register/Register';
 import './App.css';
 import User from './components/User/User';
 

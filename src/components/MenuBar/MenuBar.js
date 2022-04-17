@@ -1,12 +1,18 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from '../../image/logo-dark.png';
+import {signOut } from 'firebase/auth';
 // import CustomLink from '../CustomLink/CustomLink';
 
 const MenuBar = () => {
+    const navigate = useNavigate();
+    const handleLogout = ()=>{
+        signOut(auth);
+        navigate('/')
+    }
     const [user] = useAuthState(auth);
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -34,7 +40,7 @@ const MenuBar = () => {
                     {user?.uid ?
                         <Nav>
                             <Nav.Link as={Link} to='/user'>{user.email}</Nav.Link>
-                            <button className='btn text-white'>logout</button>
+                            <button className='btn text-white' onClick={() => handleLogout()}>logout</button>
                         </Nav>
                         :
                         <Nav>
