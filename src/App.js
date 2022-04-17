@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
 import About from './components/About/About';
 import Blog from './components/Blog/Blog';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import MenuBar from './components/MenuBar/MenuBar';
 import Register from './components/Register/Register';
+import './App.css';
 
 function App() {
   return (

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
 import Banner from '../Banner/Banner';
 import Services from '../Services/Services';
 
@@ -12,18 +13,21 @@ const Home = () => {
     console.log(services);
     return (
         <div>
+            {/* banner section  */}
             <Banner/>
 
-            <div>
+            {/* services section  */}
+            <div className='my-5'>
             <h1 className='text-center my-5'>My Services</h1>
-            <div>
+            <div className='container'>
+            <Row xs={1} md={2} lg={4} className="g-4">
                 {
-                    services.map(item => {<Services 
-                        key={item.id}
-                        item={item}
-                        />
-                    })
+                    services.map(item => <Services 
+                    key={item.id}
+                    item={item}
+                    />)
                 }
+                </Row>
             </div>
         </div>
         </div>

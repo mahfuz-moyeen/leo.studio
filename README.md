@@ -4,3 +4,4 @@
 * React Router
 * React Bootstrap
 * Firebase Auth
+* React Font awesome
