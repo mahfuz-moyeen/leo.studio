@@ -7,3 +7,4 @@
 * React Font awesome
 * UseRef
 * React firebase hook
+* React Rating

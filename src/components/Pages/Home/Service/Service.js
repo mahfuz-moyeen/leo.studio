@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Services = ({ item }) => {
-    const { id, img, name, price, duration, takePhoto, editedPhoto, print, description } = item;
+const Service = ({ item }) => {
+    const { img, name, price, duration, takePhoto, editedPhoto, print, description } = item;
 
     return (
         <Col>
@@ -39,4 +39,4 @@ const Services = ({ item }) => {
     );
 };
 
-export default Services;
+export default Service;

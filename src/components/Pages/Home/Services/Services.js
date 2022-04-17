@@ -1,23 +1,17 @@
 import React from 'react';
+import Service from '../Service/Service'
+import useServices from '../../../../Hooks/useServices'; 
 import { Row } from 'react-bootstrap';
-import useServices from '../../hook/useServices';
-import Banner from '../Banner/Banner';
-import Services from '../Services/Services';
 
-const Home = () => {
+const Services = () => {
     const [services, setServices] = useServices();
     return (
-        <div>
-            {/* banner section  */}
-            <Banner />
-
-            {/* services section  */}
-            <div className='my-5'>
+        <div id="services" className='my-5'>
                 <h1 className='text-center my-5'>My Services</h1>
                 <div className='container'>
                     <Row xs={1} md={2} lg={4} className="g-4">
                         {
-                            services.map(item => <Services
+                            services.map(item => <Service
                                 key={item.id}
                                 item={item}
                             />)
@@ -25,8 +19,7 @@ const Home = () => {
                     </Row>
                 </div>
             </div>
-        </div>
     );
 };
 
-export default Home;
+export default Services;

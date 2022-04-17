@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import auth from '../../../firebase.init';
-import Loading from '../../Loading/Loading';
+import auth from '../../../../firebase.init';
+import Loading from '../../../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {

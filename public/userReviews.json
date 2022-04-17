@@ -1,0 +1,26 @@
+[
+    {
+      "id": "user01",
+      "name": "Tasnuva Mila",
+      "img": "/img/user/user01.jpg",
+      "reviews": "Thanks a lot Leo for my wedding pictures You people tried your best to make my pictures more special. leo is a great person and he took our photo very carefully and took our best remember moments",
+      "rate": 4.5,
+      "published": "September 2021"
+    },
+    {
+      "id": "user02",
+      "name": "Bobby Parker",
+      "img": "/img/user/user02.jpg",
+      "reviews": "I highly recommend Leo studio. He covered all our wedding events. The photos came out great and on time as promised.",
+      "rate": 5,
+      "published": "August 2021"
+    },
+    {
+      "id": "user03",
+      "name": "Ferdinand Loland",
+      "img": "/img/user/user03.jpg",
+      "reviews": "Leo studio covered my engagement ceremony! And the way he took care of it was beyond my expectations and imagination.",
+      "rate": 4.9,
+      "published": "September 2021"
+    }
+  ]
