@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init'
+import Loading from '../../../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
@@ -28,11 +29,15 @@ const Register = () => {
     const handleConfirmPasswordBlur = event => {
         setConfirmPassword(event.target.value);
     }
+    
+    if (loading) {
+        return <Loading></Loading>
+    }
 
-    // if (user) {
-    //     const from = location.state?.from?.pathname || "/";
-    //     navigate(from, { replace: true });
-    // }
+    if (user) {
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
+    }
 
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -100,7 +105,7 @@ const Register = () => {
                      label="Accept leo studio Terms and Conditions" />
                 </Form.Group>
 
-                <Form.Text className="text-danger">{error}</Form.Text>
+                <Form.Text className="text-danger">{error?.message}</Form.Text>
                 <p>Already have an account? <Link to="/login" className='text-primary pe-auto text-decoration-none' >Please Login</Link> </p>
                 <Button
                     disabled={!agree}

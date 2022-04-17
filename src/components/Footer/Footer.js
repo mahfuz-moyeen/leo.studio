@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logoDark from '../../image/logo-dark.png'
 import facebook from '../../image/social/facebook-f-brands.svg'
 import twitter from '../../image/social/twitter-brands.svg'
@@ -8,8 +8,41 @@ import instagram from '../../image/social/instagram-brands.svg'
 import './Footer.css'
 
 const Footer = () => {
+    const { pathname } = useLocation()
+    
+    const pathCheck = () => {
+        if(pathname==='/'){
+            return true;
+        }
+        else if(pathname==='/home'){
+            return true;
+        }
+        else if(pathname==='/blog'){
+            return true;
+        }
+        else if(pathname==='/checkout'){
+            return true;
+        }
+        else if(pathname==='/about'){
+            return true;
+        }
+        else if(pathname==='/user'){
+            return true;
+        }
+        else if(pathname==='/register'){
+            return true;
+        }
+        else if(pathname==='/login'){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    const isPathTrue = pathCheck()
     return (
-        <footer className=''>
+        <footer className={`${isPathTrue ? 'd-block' : 'd-none'}`}>
             <div className='container p-4'>
                 <Row className='align-items-center my-3'>
                     <Col md={6}>
