@@ -3,7 +3,10 @@ import React from 'react';
 const About = () => {
     return (
         <div>
-            <h1>about</h1>
+            <h1 className='text-center my-5'>About</h1>
+            <div>
+                
+            </div>
         </div>
     );
 };
