@@ -1,38 +1,93 @@
-import React from 'react';
-import { Form } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init'
 
 const Register = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+
+    const handleNameBlur = event => {
+        setName(event.target.value);
+    }
+    const handleEmailBlur = event => {
+        setEmail(event.target.value);
+    }
+    const handlePasswordBlur = event => {
+        setPassword(event.target.value);
+    }
+    const handleConfirmPasswordBlur = event => {
+        setConfirmPassword(event.target.value);
+    }
+
+    if (user) {
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
+    }
+
+    const handleFormSubmit = event => {
+        event.preventDefault();
+        if (password === confirmPassword) {
+            setPasswordError('')
+            createUserWithEmailAndPassword(email, password);
+        }
+        else {
+            setPasswordError("Two password did not match");
+        }
+    }
     return (
         <div className='container my-5 w-75'>
-             <h1 className='text-center'>REGIS<span className='text-primary'>TER</span></h1>
-            <Form>
+            <h1 className='text-center'>REGIS<span className='text-primary'>TER</span></h1>
+            <Form onSubmit={handleFormSubmit}>
+                {/* name field  */}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Your Name</Form.Label>
-                    <Form.Control 
-                    type="text" 
-                    placeholder="Enter name" 
-                    required/>
+                    <Form.Control
+                        onBlur={handleNameBlur}
+                        type="text"
+                        placeholder="Enter name"
+                        required />
                 </Form.Group>
+                {/* email field  */}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control 
-                    type="email" 
-                    placeholder="Enter email" 
-                    required/>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        onBlur={handleEmailBlur}
+                        type="email"
+                        placeholder="Enter email"
+                        required />
+                    <Form.Text className="text-danger"></Form.Text>
+                </Form.Group>
+                {/* password field  */}
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        onBlur={handlePasswordBlur}
+                        type="password"
+                        placeholder="Password"
+                        required />
+                    <Form.Text className="text-danger">{passwordError}</Form.Text>
+                </Form.Group>
+                {/* confirm password field  */}
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control
+                        onBlur={handleConfirmPasswordBlur}
+                        type="password"
+                        placeholder="Password"
+                        required />
                     <Form.Text className="text-danger"></Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control 
-                    type="password" 
-                    placeholder="Password" 
-                    required/>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <button className='btn btn-primary'>Register</button>
+                <Form.Text className="text-danger"></Form.Text>
+                <Button variant="primary" type="submit">Register</Button>
             </Form>
         </div>
     );
