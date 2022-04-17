@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CheckOut = () => {
     const [user] = useAuthState(auth);
@@ -11,15 +13,19 @@ const CheckOut = () => {
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
-            
             event.stopPropagation();
         }
-
+        else{
+            toast('Booking Done .');
+        }
         setValidated(true);
+        
+        
     };
     return (
         <div className='container w-75 my-5'>
             <div className='text-center my-4'>
+                <ToastContainer />
                 <h1 className='fs-1'>Checkout</h1>
                 <p>Our most popular packages are on sale!</p>
             </div>
@@ -120,7 +126,7 @@ const CheckOut = () => {
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                       Silver
+                                        Silver
                                     </label>
                                 </div>
                                 <div class="form-check">
@@ -132,13 +138,13 @@ const CheckOut = () => {
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                    Platinum
+                                        Platinum
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                    Diamond
+                                        Diamond
                                     </label>
                                 </div></div>
                         </Form.Group>

@@ -52,6 +52,7 @@ const Login = () => {
     }
     return (
         <div className='container my-5 w-75'>
+            <ToastContainer />
             <h1 className='text-center'>LOG<span className='text-primary'>IN</span></h1>
             <Form onSubmit={handleFormSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -87,7 +88,6 @@ const Login = () => {
                 <Button variant="primary" type="submit">Login</Button>
             </Form>
             <SocialLogin />
-            <ToastContainer />
         </div>
     );
 };

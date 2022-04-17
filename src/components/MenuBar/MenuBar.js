@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from '../../image/logo-dark.png';
 import {signOut } from 'firebase/auth';
-// import CustomLink from '../CustomLink/CustomLink';
+
 
 const MenuBar = () => {
     const navigate = useNavigate();
@@ -75,7 +75,7 @@ const MenuBar = () => {
                     </Nav>
                     {user?.uid ?
                         <Nav>
-                            <Nav.Link as={Link} to='/user'>{user.email}</Nav.Link>
+                            <Nav.Link as={Link} to='/user'>{user?.displayName}</Nav.Link>
                             <button className='btn text-white' onClick={() => handleLogout()}>logout</button>
                         </Nav>
                         :

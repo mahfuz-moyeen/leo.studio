@@ -25,7 +25,7 @@ const SocialLogin = () => {
                 <div style={{ height: '2px' }} className='bg-primary w-50'></div>
             </div>
             <div>
-            <p className='text-danger'>{error?.message}</p>
+            <p className='text-danger'>{error?.message.slice(22)}</p>
                 <div className=''>
                     <button
                         onClick={() => signInWithGoogle()}

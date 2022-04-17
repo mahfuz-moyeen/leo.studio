@@ -39,6 +39,10 @@ const Register = () => {
         return <Loading></Loading>
     }
 
+    // if (user) {
+    //     const from = location.state?.from?.pathname || "/";
+    //     navigate(from, { replace: true });
+    // }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -50,11 +54,7 @@ const Register = () => {
                 await createUserWithEmailAndPassword(email, password);
                 await updateProfile({ displayName: name });
                 toast('Updated profile');
-    
-                if (user) {
-                    const from = location.state?.from?.pathname || "/";
-                    navigate(from, { replace: true });
-                }
+                navigate('/');
             }
             else {
                 setPasswordError("Two password did not match");
@@ -70,7 +70,7 @@ const Register = () => {
             <Form onSubmit={handleFormSubmit}>
 
                 {/* name field  */}
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your Name</Form.Label>
                     <Form.Control
                         onBlur={handleNameBlur}
@@ -102,7 +102,7 @@ const Register = () => {
                 </Form.Group>
 
                 {/* confirm password field  */}
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
                         onBlur={handleConfirmPasswordBlur}
