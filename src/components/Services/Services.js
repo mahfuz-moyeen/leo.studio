@@ -1,3 +1,5 @@
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 
@@ -12,7 +14,7 @@ const Services = ({ item }) => {
                     <p className='fw-bold'>Price: ${price}</p>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>Event Duration: {duration}</ListGroupItem>
+                    <ListGroupItem><FontAwesomeIcon icon={faCoffee} /> Event Duration: {duration}</ListGroupItem>
                     <ListGroupItem>Number of Pictures: {takePhoto}</ListGroupItem>
                     <ListGroupItem>Specially Edited Photos: {editedPhoto}</ListGroupItem>
                     <ListGroupItem>Print: {print}</ListGroupItem>
