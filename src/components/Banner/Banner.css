@@ -1,0 +1,11 @@
+.banner-text-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.banner-text-section h1{
+
+}
+.banner-img-section img{
+    border-radius: 20px;
+}

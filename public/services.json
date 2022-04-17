@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "name": "Silver",
+        "img": "/img/services-img/silver.jpg",
+        "price": 100,
+        "duration": "2 Hours",
+        "takePhoto": "Unlimited (All post processed)",
+        "editedPhoto": "100 copies",
+        "print": "4R (4”x6″) Matte Prints: 100 copies",
+        "description": "All soft copy of photos will be delivered in Pen drive"
+    },
+    {
+        "id": 2,
+        "name": "Gold",
+        "img": "/img/services-img/gold.jpg",
+        "price": 200,
+        "duration": "3 Hours",
+        "takePhoto": "Unlimited (All post processed)",
+        "editedPhoto": "100 copies",
+        "print": "4R (4”x6″) Matte Prints: 100 copies",
+        "description": "All soft copy of photos will be delivered in Pen drive"
+    },
+    {
+        "id": 3,
+        "name": "Platinum",
+        "img": "/img/services-img/diamond.jpg",
+        "price": 300,
+        "duration": "3 Hours",
+        "takePhoto": "Unlimited (All post processed)",
+        "editedPhoto": "150 copies",
+        "print": "4R (4”x6″) Matte Prints: 150 copies",
+        "description": "All soft copy of photos will be delivered in Pen drive"
+    },
+    {
+        "id": 4,
+        "name": "Diamond",
+        "img": "/img/services-img/platinum.jpg",
+        "price": 400,
+        "duration": "4 Hours",
+        "takePhoto": "Unlimited (All post processed)",
+        "editedPhoto": "200 copies",
+        "print": "4R (4”x6″) Matte Prints: 200 copies",
+        "description": "All soft copy of photos will be delivered in Pen drive"
+    }
+]
