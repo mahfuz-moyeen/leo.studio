@@ -1,9 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>welcome to my pagfe</h1>
+      <h1 className='text-danger'>text</h1>
     </div>
   );
 }
