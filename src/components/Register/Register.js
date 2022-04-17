@@ -12,7 +12,7 @@ const Register = () => {
     const [passwordError, setPasswordError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
     const handleNameBlur = event => {
         setName(event.target.value);
@@ -27,10 +27,10 @@ const Register = () => {
         setConfirmPassword(event.target.value);
     }
 
-    if (user) {
-        const from = location.state?.from?.pathname || "/";
-        navigate(from, { replace: true });
-    }
+    // if (user) {
+    //     const from = location.state?.from?.pathname || "/";
+    //     navigate(from, { replace: true });
+    // }
 
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -86,7 +86,7 @@ const Register = () => {
                     <Form.Text className="text-danger"></Form.Text>
                 </Form.Group>
 
-                <Form.Text className="text-danger"></Form.Text>
+                <Form.Text className="text-danger">{error}</Form.Text>
                 <Button variant="primary" type="submit">Register</Button>
             </Form>
         </div>
