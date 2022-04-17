@@ -7,6 +7,7 @@ import Login from './components/Login/Login';
 import MenuBar from './components/MenuBar/MenuBar';
 import Register from './components/Register/Register';
 import './App.css';
+import User from './components/User/User';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/blog' element={<Blog/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/user' element={<User/>}/>
       </Routes>
     </div>
   );
