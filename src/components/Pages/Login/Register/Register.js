@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init'
 import Loading from '../../../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -15,7 +17,10 @@ const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [agree, setAgree] = useState(false);
+
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     const handleNameBlur = event => {
         setName(event.target.value);
@@ -30,7 +35,7 @@ const Register = () => {
         setConfirmPassword(event.target.value);
     }
     
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>
     }
 
@@ -39,11 +44,13 @@ const Register = () => {
         navigate(from, { replace: true });
     }
 
-    const handleFormSubmit = event => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
         if (password === confirmPassword) {
             setPasswordError('')
-            createUserWithEmailAndPassword(email, password);
+           await createUserWithEmailAndPassword(email, password);
+           await updateProfile({ displayName:name});
+           toast('Updated profile');
         }
         else {
             setPasswordError("Two password did not match");
@@ -105,7 +112,7 @@ const Register = () => {
                      label="Accept leo studio Terms and Conditions" />
                 </Form.Group>
 
-                <Form.Text className="text-danger">{error?.message}</Form.Text>
+                <Form.Text className="text-danger">{error?.message.slice(22)}</Form.Text>
                 <p>Already have an account? <Link to="/login" className='text-primary pe-auto text-decoration-none' >Please Login</Link> </p>
                 <Button
                     disabled={!agree}
@@ -113,6 +120,7 @@ const Register = () => {
                     type="submit">Register</Button>
             </Form>
             <SocialLogin />
+            <ToastContainer />
         </div>
     );
 };
