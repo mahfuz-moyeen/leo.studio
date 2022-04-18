@@ -17,6 +17,9 @@ const Footer = () => {
         else if(pathname==='/home'){
             return true;
         }
+        else if(pathname==='/services'){
+            return true;
+        }
         else if(pathname==='/blog'){
             return true;
         }

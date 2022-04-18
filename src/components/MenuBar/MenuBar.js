@@ -18,6 +18,9 @@ const MenuBar = () => {
         else if(pathname==='/home'){
             return true;
         }
+        else if(pathname==='/services'){
+            return true;
+        }
         else if(pathname==='/blog'){
             return true;
         }
@@ -69,7 +72,7 @@ const MenuBar = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to='/home'>Home</Nav.Link>
-                        <Nav.Link href="home#services">Services</Nav.Link>
+                        <Nav.Link as={Link} to="/services">Services</Nav.Link>
                         <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
                         <Nav.Link as={Link} to='/about'>About</Nav.Link>
                     </Nav>
