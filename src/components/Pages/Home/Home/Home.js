@@ -7,7 +7,7 @@ import { Row } from 'react-bootstrap';
 
 
 const Home = () => {
-    const [reviews, setReviews] = useReviews()
+    const [reviews] = useReviews()
     return (
         <div>
             {/* banner section  */}
@@ -18,7 +18,7 @@ const Home = () => {
 
             {/* review  */}
             <div className='container my-5'>
-                <h1 className='text-center my-5'>Reviews</h1>
+            <h1 className='text-center my-5'><span className='text-primary'>Re</span>views</h1>
                 <Row xs={1} md={3} className="g-4">
                     {
                         reviews.map(review => <Review

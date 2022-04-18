@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -16,7 +15,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     if (loading || sending) {
         return <Loading></Loading>
@@ -52,7 +51,7 @@ const Login = () => {
     }
     return (
         <div className='container my-5 w-75'>
-            <ToastContainer />
+            
             <h1 className='text-center'>LOG<span className='text-primary'>IN</span></h1>
             <Form onSubmit={handleFormSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -88,6 +87,7 @@ const Login = () => {
                 <Button variant="primary" type="submit">Login</Button>
             </Form>
             <SocialLogin />
+            <ToastContainer />
         </div>
     );
 };

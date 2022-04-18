@@ -26,8 +26,8 @@ const CheckOut = () => {
         <div className='container w-75 my-5'>
             <div className='text-center my-4'>
                 <ToastContainer />
-                <h1 className='fs-1'>Checkout</h1>
-                <p>Our most popular packages are on sale!</p>
+                <h1 className='text-center'>Check<span className='text-primary'>out</span></h1>
+                <p>My most popular packages are on sale!</p>
             </div>
             <div>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>

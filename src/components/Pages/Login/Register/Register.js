@@ -53,7 +53,7 @@ const Register = () => {
             if (password === confirmPassword) {
                 await createUserWithEmailAndPassword(email, password);
                 await updateProfile({ displayName: name });
-                toast('Updated profile');
+                toast('Send email verify');
                 navigate('/');
             }
             else {

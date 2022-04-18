@@ -7,9 +7,9 @@ const Banner = () => {
     return (
         <div className='container my-5'>
             <Row xs={1} md={2} className="g-4">
-                <Col className='text-center order-2 order-md-1'>
+                <Col className='banner-text-section text-center order-2 order-md-1'>
                     <h1 className='fs-2 text-primary'>Every moment of your life is beautiful.</h1>
-                    <p className='my-3 p-3'>Your each movement,your each emotion is nothing but a beautiful picture and I am just want to hold on those moments with my camera and make it a piece of art with  editing.</p>
+                    <p className='my-3 p-3'>Your each movement,your each emotion is nothing but a beautiful picture and I am just want to hold on those moments with my camera and make it a piece of art with  editing. I am single wedding photographer and I will provide best offer for your event.</p>
                 </Col>
 
                 <Col className='banner-img-section order-1 order-md-2'>
