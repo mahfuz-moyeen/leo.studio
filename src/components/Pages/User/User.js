@@ -11,6 +11,7 @@ const User = () => {
     }
     return (
         <div className='container text-center my-5'>
+            <h1 className='text-center my-5'>User<span className='text-primary'> Details</span></h1>
             <div>
                 <img  width={200}
                 height={200}

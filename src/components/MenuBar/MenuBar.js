@@ -21,7 +21,7 @@ const MenuBar = () => {
         else if(pathname==='/services'){
             return true;
         }
-        else if(pathname==='/blog'){
+        else if(pathname==='/blogs'){
             return true;
         }
         else if(pathname==='/checkout'){
@@ -73,7 +73,7 @@ const MenuBar = () => {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to='/home'>Home</Nav.Link>
                         <Nav.Link as={Link} to="/services">Services</Nav.Link>
-                        <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
+                        <Nav.Link as={Link} to='/blogs'>Blogs</Nav.Link>
                         <Nav.Link as={Link} to='/about'>About</Nav.Link>
                     </Nav>
                     {user?.uid ?

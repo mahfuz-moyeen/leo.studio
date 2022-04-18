@@ -19,7 +19,7 @@ const Home = () => {
             {/* review  */}
             <div className='container my-5'>
                 <h1 className='text-center my-5'>Reviews</h1>
-                <Row xs={1} md={3} className="g-5">
+                <Row xs={1} md={3} className="g-4">
                     {
                         reviews.map(review => <Review
                             key={review.id}

@@ -6,8 +6,8 @@ import { Row } from 'react-bootstrap';
 const Services = () => {
     const [services, setServices] = useServices();
     return (
-        <div className='my-5'>
-                <h1 className='text-center my-5'>My Services</h1>
+        <div className=' container my-5'>
+            <h1 className='text-center my-5'><span className='text-primary'>My</span>Services</h1>
                 <div className='container'>
                     <Row xs={1} md={2} lg={4} className="g-4">
                         {
