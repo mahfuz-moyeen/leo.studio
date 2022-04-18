@@ -9,7 +9,12 @@ import './Footer.css'
 
 const Footer = () => {
     const { pathname } = useLocation()
-    
+
+    // footer year  
+    const today = new Date();
+    const year = today.getFullYear();
+
+    //path check for not found page
     const pathCheck = () => {
         if(pathname==='/'){
             return true;
@@ -20,7 +25,7 @@ const Footer = () => {
         else if(pathname==='/services'){
             return true;
         }
-        else if(pathname==='/blog'){
+        else if(pathname==='/blogs'){
             return true;
         }
         else if(pathname==='/checkout'){
@@ -54,9 +59,9 @@ const Footer = () => {
                             <div>
                                 <p className='d-flex footer-text'>
                                     <Link className='footer-text px-2 text-decoration-none' to='/'>Home</Link><span> | </span>
-                                    <Link className='footer-text px-2 text-decoration-none' to='/'>Services</Link><span> | </span>
-                                    <Link className='footer-text px-2 text-decoration-none' to='/'>Blog</Link><span> | </span>
-                                    <Link className='footer-text px-2 text-decoration-none' to='/'>About</Link>
+                                    <Link className='footer-text px-2 text-decoration-none' to='/services'>Services</Link><span> | </span>
+                                    <Link className='footer-text px-2 text-decoration-none' to='/blogs'>Blog</Link><span> | </span>
+                                    <Link className='footer-text px-2 text-decoration-none' to='/about'>About</Link>
                                 </p>
                             </div>
                         </div>
@@ -64,14 +69,22 @@ const Footer = () => {
                     <Col md={6} className='text-md-end'>
                         <div>Contact me</div>
                         <div className='footer-logo my-3 justify-content-md-end'>
-                            <a href="https://www.facebook.com/mahfuz.moyeen.111" target='_blank'><img src={facebook} alt="" /></a>
-                            <a href="https://twitter.com/?lang=en" target='_blank'><img src={twitter} alt="" /></a>
-                            <a href="https://www.instagram.com/?hl=en" target='_blank'><img src={instagram} alt="" /></a>
+                            <a 
+                            className='bg-white rounded-circle'
+                            href="https://www.facebook.com/mahfuz.moyeen.111" 
+                            target='_blank'>
+                                <img src={facebook} alt="facebook" /></a>
+
+                            <a
+                            className='bg-white rounded-circle' href="https://twitter.com/?lang=en" target='_blank'><img src={twitter} alt="twitter" /></a>
+
+                            <a
+                            className='bg-white rounded-circle' href="https://www.instagram.com/?hl=en" target='_blank'><img src={instagram} alt="instagram" /></a>
                         </div>
                     </Col>
                 </Row>
                 <div>
-                    <p className='fs-6 text-center my-3'>Copyrights &copy; All Rights Reserved by jeo_studio.com</p>
+                    <p className='fs-6 text-center my-3 text-muted'>Copyrights &copy; {year} | All Rights Reserved by jeo_studio.com</p>
                 </div>
             </div>
         </footer>
