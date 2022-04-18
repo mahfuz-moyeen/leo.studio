@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init'
 import Loading from '../../../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
@@ -20,7 +20,7 @@ const Register = () => {
 
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [updateProfile, updating] = useUpdateProfile(auth);
 
     const handleNameBlur = event => {
         setName(event.target.value);
@@ -39,10 +39,10 @@ const Register = () => {
         return <Loading></Loading>
     }
 
-    // if (user) {
-    //     const from = location.state?.from?.pathname || "/";
-    //     navigate(from, { replace: true });
-    // }
+    if (user) {
+        const from = location.state?.from?.pathname || "/";
+        navigate(from, { replace: true });
+    }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -53,8 +53,7 @@ const Register = () => {
             if (password === confirmPassword) {
                 await createUserWithEmailAndPassword(email, password);
                 await updateProfile({ displayName: name });
-                toast('Send email verify');
-                navigate('/');
+                toast('Send email verify and update email');
             }
             else {
                 setPasswordError("Two password did not match");
@@ -128,7 +127,6 @@ const Register = () => {
                     type="submit">Register</Button>
             </Form>
             <SocialLogin />
-            <ToastContainer />
         </div>
     );
 };

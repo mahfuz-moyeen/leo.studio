@@ -32,7 +32,7 @@ const Service = ({ item }) => {
                     <Card.Text >{description}</Card.Text>
                     <Link
                         className='btn btn-primary d-block mx-auto fw-bold'
-                        to='/checkout'>Booking</Link>
+                        to='/checkout'>Book Now</Link>
                 </Card.Body>
             </Card>
         </Col>

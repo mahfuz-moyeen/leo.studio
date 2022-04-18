@@ -13,6 +13,7 @@ import User from './components/Pages/User/User';
 import './App.css';
 import NotFound from './components/Pages/NotFound/NotFound';
 import Services from './components/Pages/Home/Services/Services';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
         <Route path='/user' element={<User/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
+      <ToastContainer/>
+
       <Footer/>
     </div>
   );
